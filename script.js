@@ -79,10 +79,10 @@ function playGame(rounds){
         }
     }
 
-    if (humanScore > computerScore){
+    if (humanScore > computerScore && humanSelection != "skipped!"){
         console.log("you win the game have fun!");
     }
-    else if (computerScore > humanScore){
+    else if (computerScore > humanScore && humanSelection != "skipped!"){
         console.log("pc win the game good luck!");
     }
     else if (computerScore == humanScore && humanSelection != "skipped!"){
@@ -90,7 +90,7 @@ function playGame(rounds){
     }
 }
 
-alert("welcome to rock paper scissors please open the console to view the results while playing, GoodLuck!")
+alert("welcome to rock paper scissors please open the console to view the results while playing you will play 5 rounds, GoodLuck!")
 let humanScore = 0;
 let computerScore = 0;
 playGame(5);
