@@ -62,9 +62,26 @@ function playRound(humanChoice,computerChoice){
     }
 }
 
+function playGame(rounds){
+    for (rounds; rounds > 0; rounds --){
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+
+    if (humanScore > computerScore){
+        console.log("you win the game have fun!");
+    }
+    else if (computerScore > humanScore){
+        console.log("pc win the game good luck!");
+    }
+    else{
+        console.log("tie no heros here!");
+    }
+}
 
 let humanScore = 0;
 let computerScore = 0;
-humanSelection = getHumanChoice();
-computerSelection = getComputerChoice();
-playRound(humanSelection, computerSelection);
+playGame(5);
+
+
