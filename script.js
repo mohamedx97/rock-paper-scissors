@@ -4,12 +4,23 @@ function getComputerChoice(){
     switch (randomNumber){
         case 1:
             return "Rock";
-            break;
         case 2:
             return "Paper";
-            break;
         case 3:
             return "Scissors"
-            break;
+    }
+}
+
+function getHumanChoice(userChoice){
+    userChoice = prompt("your turn!, write:Rock, Paper or Scissors").toLowerCase();
+    switch (userChoice){
+        case "rock":
+            return "Rock";
+        case "paper":
+            return "Paper";
+        case "scissors":
+            return "Scissors";
+        default:
+            return "Error!";
     }
 }
