@@ -12,7 +12,10 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    userChoice = prompt("your turn!, write:Rock, Paper or Scissors").toLowerCase();
+    userChoice = prompt("your turn!, write:Rock, Paper or Scissors");
+    if (userChoice != null){
+        userChoice = userChoice.toLowerCase();
+    }
     switch (userChoice){
         case "rock":
             return "Rock";
@@ -20,6 +23,9 @@ function getHumanChoice(){
             return "Paper";
         case "scissors":
             return "Scissors";
+        case null:
+            alert("you have skiped the game");
+            return "skipped!"
         default:
             return "Error!";
     }
@@ -67,6 +73,10 @@ function playGame(rounds){
         humanSelection = getHumanChoice();
         computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
+        if (humanSelection === "skipped!"){
+            console.log("game over!");
+            break;
+        }
     }
 
     if (humanScore > computerScore){
@@ -75,11 +85,12 @@ function playGame(rounds){
     else if (computerScore > humanScore){
         console.log("pc win the game good luck!");
     }
-    else{
+    else if (computerScore == humanScore && humanSelection != "skipped!"){
         console.log("tie no heros here!");
     }
 }
 
+alert("welcome to rock paper scissors please open the console to view the results while playing, GoodLuck!")
 let humanScore = 0;
 let computerScore = 0;
 playGame(5);
